@@ -123,18 +123,16 @@
       <p>Tell us about your vehicle and the service you want. We’ll get back to you with a price and availability.</p>
     </header>
 
-    <!-- SUCCESS MESSAGE (shown after redirect) -->
     <div id="successBox" class="success">
       ✅ Thanks! Your quote request was sent. We’ll contact you soon.
     </div>
 
-    <!-- IMPORTANT PART: FORMSPREE FORM -->
     <form
       action="https://formspree.io/f/mblpbldx"
       method="POST"
       accept-charset="UTF-8"
     >
-      <!-- this makes Formspree return JSON instead of 405/html -->
+      <input type="hidden" name="_redirect" value="https://km7210.github.io/Wrap--quote/?success=1" />
       <input type="hidden" name="_subject" value="New wrap quote request" />
       <input type="hidden" name="_language" value="en" />
 
@@ -176,7 +174,6 @@
   </div>
 
   <script>
-    // show success message if Formspree redirected back with ?success
     const params = new URLSearchParams(window.location.search);
     if (params.get("success") === "1") {
       document.getElementById("successBox").style.display = "block";
